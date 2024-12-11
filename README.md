@@ -1,30 +1,6 @@
-# Online Checklist Management Platform
+# NEXT JS + PostgreSQL + Docker
 
-An online platform for creating and managing interactive checklists with features like team collaboration, real-time updates, and AI integration.
 
----
-
-## **Features**
-- User registration and login (Email, Google, Telegram OAuth).
-- Checklist creation and management.
-- Team collaboration in real-time.
-- Notifications via Telegram and email.
-- Multi-language support (English, German).
-- Export checklists to PDF.
-- Free and premium versions with feature limitations.
----
-
-## **Setup**
-
-### Prerequisites
-To run this project, you need:
-- **Docker** and **Docker Compose** installed on your machine.
-- A .env file with the following content:
-  POSTGRES_USER=your_user
-  POSTGRES_PASSWORD=your_password
-  POSTGRES_DB=your_database
-
----
 
 ## **Development Environment**
 
