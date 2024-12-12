@@ -1,5 +1,9 @@
 # Base image for Node.js development
-FROM node:18-alpine AS base
+FROM node:18 AS base
+
+
+RUN apt-get update && apt-get install -y openssl
+
 
 # Set the working directory inside the container
 WORKDIR /app
@@ -16,11 +20,21 @@ COPY . .
 # Expose the development server port
 EXPOSE 3000
 
+RUN npx prisma generate
+
 # Default command to start the development server
 CMD ["npm", "run", "dev"]
 
+
+
+
+
+
 # Production stage
-FROM node:18-alpine AS production
+FROM node:18 AS production
+
+RUN apt-get update && apt-get install -y openssl
+
 
 # Set the working directory
 WORKDIR /app
@@ -40,8 +54,11 @@ COPY . .
 # Build the application
 RUN npm run build
 
+
 # Expose the application port
 EXPOSE 3000
+
+RUN npx prisma generate
 
 # Command to start the production server
 CMD ["npm", "start"]
