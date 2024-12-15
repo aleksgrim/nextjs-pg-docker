@@ -51,6 +51,8 @@ RUN npm ci --only=production
 # Copy application code
 COPY . .
 
+RUN npx prisma generate
+
 # Build the application
 RUN npm run build
 
@@ -58,7 +60,7 @@ RUN npm run build
 # Expose the application port
 EXPOSE 3000
 
-RUN npx prisma generate
+
 
 # Command to start the production server
 CMD ["npm", "start"]
